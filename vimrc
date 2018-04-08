@@ -205,8 +205,12 @@ if has("gui_running")
         set guioptions+=e
         set t_Co=256
         set guitablabel=%M\ %t
-        set guifont=Dejavu\ Sans\ Mono\ 11     " 字体 && 字号
         set lines=36 columns=88    " 设定窗口大小
+        if has("win32")
+            set guifont=Dejavu_Sans_Mono:h10     " 字体 && 字号
+        else
+            set guifont=Dejavu\ Sans\ Mono\ 11     " 字体 && 字号
+        endif
 else
         colorscheme desert
         set background=dark
