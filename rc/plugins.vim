@@ -1,24 +1,34 @@
-set nocompatible                " be iMproved
+"----------------------------------------------------------------------
+" 计算当前 vim-init 的子路径
+"----------------------------------------------------------------------
+let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
+
+function! s:path(path)
+	let path = expand(s:home . '/' . a:path )
+	return substitute(path, '\\', '/', 'g')
+endfunc
+
+let s:bundle_home = s:path("bundle")
+let s:vundle_home = s:path("bundle/Vundle.vim")
 
 filetype off                    " required!
 
-if has("win32")
-    set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-    call vundle#rc('$VIM/vimfiles/bundle/')
-else
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin("~/.vim/bundle")
-endif
+exec 'set rtp+='.s:vundle_home
+call vundle#begin(s:bundle_home)
 
 " let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
 
+"----------------------------------------------------------------------
+" 默认插件 
+"----------------------------------------------------------------------
+Plugin 'tomasr/molokai'
+Plugin 'lilydjwg/fcitx.vim'
+
 " generals {
 Plugin 'scrooloose/nerdtree'
-Plugin 'lilydjwg/fcitx.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
 Plugin 'nanotech/jellybeans.vim'
 
 " ag
@@ -147,5 +157,5 @@ let g:indentLine_color_gui = '#A4E57E'
 
 Plugin 'terryma/vim-multiple-cursors'
 
-
-call vundle#end()
+call vundle#end()            " required
+filetype plugin indent on    " required
