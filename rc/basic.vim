@@ -21,9 +21,6 @@ set wrap "Wrap lines
 " Windows 禁用 ALT 操作菜单（使得 ALT 可以用到 Vim里）
 set winaltkeys=no
 
-" 关闭自动换行
-set nowrap
-
 " 打开功能键超时检测（终端下功能键为一串 ESC 开头的字符串）
 set ttimeout
 
