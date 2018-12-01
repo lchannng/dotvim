@@ -126,17 +126,13 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSelection('gv')<CR>
-vnoremap <leader>f :call VisualSelection('gvc')<CR>
+
+" When you press <leader>r you can search and replace the selected tmainmainmainext
+vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 
 " Open Ag and put the cursor in the right position
 map <leader>g :Ag ""<left>
 
-" 当前文件查找字符串
-map <leader><space> :vimgrep // <C-R>%<C-A><left><left><left><left><left><left><left><left>
-
-" 替换选择的文本
-" When you press <leader>r you can search and replace the selected tmainmainmainext
-vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 
 " Do :help cope if you are unsure what cope is. It's super useful!
 "
@@ -192,10 +188,8 @@ map <leader>pp :setlocal paste!<cr>
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction
+    call feedkeys(":" . a:str)
+endfunction 
 
 function! VisualSelection(direction) range
    let l:saved_reg = @"
@@ -208,8 +202,6 @@ function! VisualSelection(direction) range
         execute "normal ?" . l:pattern . "^M"
     elseif a:direction == 'gv'
         call CmdLine("Ag \"" . l:pattern . "\" " )
-    elseif a:direction == 'gvc'
-        call CmdLine("Ag \"" . l:pattern . "\" " . '<C-R>%<C-A>' )
     elseif a:direction == 'replace'
         call CmdLine("%s" . '/'. l:pattern . '/')
     elseif a:direction == 'f'
