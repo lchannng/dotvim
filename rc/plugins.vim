@@ -1,3 +1,8 @@
+" File  : plugins.vim
+" Author: Lch <fn.stanc@gmail.com>
+" Date  : 01.12.2018
+" Last Modified Date  : 01.12.2018
+" Last Modified By  : Lch <fn.stanc@gmail.com>
 "----------------------------------------------------------------------
 " 计算当前 vim-init 的子路径
 "----------------------------------------------------------------------
@@ -20,7 +25,7 @@ call vundle#begin(s:bundle_home)
 Plugin 'VundleVim/Vundle.vim'
 
 "----------------------------------------------------------------------
-" 默认插件 
+" 默认插件
 "----------------------------------------------------------------------
 Plugin 'tomasr/molokai'
 Plugin 'lilydjwg/fcitx.vim'
@@ -48,6 +53,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'a.vim'
 Plugin 'Blackrush/vim-gocode'
+Plugin 'fnstanc/vim-header'
 " }
 
 " autocomplete {
@@ -156,6 +162,14 @@ let g:indent_guides_start_level = 2
 let g:indentLine_color_gui = '#A4E57E'
 
 Plugin 'terryma/vim-multiple-cursors'
+
+" vim-header
+let g:header_field_author = 'Lch'
+let g:header_field_author_email = 'fn.stanc@gmail.com'
+let g:header_field_filename_path = 0
+let g:header_field_modified_timestamp = 0
+let g:header_field_modified_by = 0
+let g:header_field_timestamp_format = '%Y/%m/%d %H:%M:%S'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

@@ -1,3 +1,6 @@
+" File  : keymaps.vim
+" Author: Lch <fn.stanc@gmail.com>
+" Date  : 2018/12/01 15:15:27
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -189,7 +192,7 @@ map <leader>pp :setlocal paste!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! CmdLine(str)
     call feedkeys(":" . a:str)
-endfunction 
+endfunction
 
 function! VisualSelection(direction) range
    let l:saved_reg = @"
@@ -301,57 +304,6 @@ function ClosePair(char)
         return a:char
     endif
 endf
-
-" 新建.c,.h,.sh,.java文件，自动插入文件头
-autocmd BufNewFile *.cpp,*cc,*.hpp,*.py,*.[ch],*.sh exec ":call SetTitle()"
-
-" 定义函数SetTitle，自动插入文件头
-func SetTitle()
-    "如果文件类型为.sh文件
-    if &filetype == 'sh'
-        call setline(1, "\#!/bin/sh")
-        call append(line("."), "\# File Name: ".expand("%"))
-        call append(line(".")+1, "\# Author: Lch")
-        call append(line(".")+2, "\# mail: fn.stanc@gmail.com")
-        call append(line(".")+3, "\# Created Time: ".strftime("%c"))
-        call append(line(".")+4, "")
-    elseif &filetype == 'python'
-        call setline(1,"\#-*- coding: utf-8 -*-")
-        call append(line("."), "\#!/usr/bin/env python")
-        call append(line(".")+1, "\# File Name: ".expand("%"))
-        call append(line(".")+2, "\# Author: Lch")
-        call append(line(".")+3, "\# Mail: fn.stanc@gmail.com")
-        call append(line(".")+4, "\# Created Time: ".strftime("%c"))
-        call append(line(".")+5, "")
-    else
-        call setline(1, "/*")
-        call append(line("."), " * File Name: ".expand("%"))
-        call append(line(".")+1, " * Author: Lch")
-        call append(line(".")+2, " * Mail: fn.stanc@gmail.com")
-        call append(line(".")+3, " * Created Time: ".strftime("%c"))
-        call append(line(".")+4, " */")
-        call append(line(".")+5, "")
-    endif
-
-
-    if expand("%:e") == 'h'
-        call append(line(".")+6, "#ifndef _".toupper(expand("%:t:r"))."_H")
-        call append(line(".")+7, "#define _".toupper(expand("%:t:r"))."_H")
-        call append(line(".")+8, "")
-        call append(line(".")+9, "#endif")
-
-    "elseif &filetype == 'c'
-    "    call append(line(".")+6, "#include <stdio.h>")
-    "    call append(line(".")+7, "#include <stdlib.h>")
-    "    call append(line(".")+8, "")
-
-    "elseif expand("%:e") == 'cpp'
-    "    call append(line(".")+6, "#include <iostream>")
-    "    call append(line(".")+7, "using namespace std;")
-    "    call append(line(".")+8, "")
-    endif
-
-endfunc
 
 "新建文件后，自动定位到文件末尾
 autocmd BufNewFile * normal G
