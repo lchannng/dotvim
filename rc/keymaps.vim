@@ -275,10 +275,7 @@ nnoremap <silent> <F6> :A<CR>
 let Tlist_Show_One_File=1
 
 " 建立tags
-map <F2> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
-" Taglist
-" map <F3> :Tlist <CR>
+" map <F2> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " Tagbar
 map <F3> :Tagbar <CR>
