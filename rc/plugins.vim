@@ -20,34 +20,31 @@ function! s:path(path)
 	return substitute(path, '\\', '/', 'g')
 endfunc
 
-let s:bundle_home = s:path("bundle")
-let s:vundle_home = s:path("bundle/Vundle.vim")
+let s:plugins_home = s:path("plugins")
+let s:vim_plug_home = s:path("vim-plug")
 
 filetype off                    " required!
 
-exec 'set rtp+='.s:vundle_home
-call vundle#begin(s:bundle_home)
-
-" let Vundle manage Vundle
-Plugin 'VundleVim/Vundle.vim'
+exec 'set rtp+='.s:vim_plug_home
+call plug#begin(s:plugins_home)
 
 "----------------------------------------------------------------------
 " 默认插件
 "----------------------------------------------------------------------
-Plugin 'tomasr/molokai'
-Plugin 'lilydjwg/fcitx.vim'
+Plug 'tomasr/molokai'
+Plug 'lilydjwg/fcitx.vim'
 
 if index(g:bundle_group, 'basic') >= 0
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'majutsushi/tagbar'
+    Plug 'scrooloose/nerdtree'
+    Plug 'majutsushi/tagbar'
 
     " ag
-    Plugin 'rking/ag.vim'
+    Plug 'rking/ag.vim'
     let g:ag_prg = 'ag --nogroup --nocolor --column --smart-case --worker=4'
     let g:ag_highlight = 1
 
     " vim-indent-guides
-    Plugin 'nathanaelkane/vim-indent-guides'
+    Plug 'nathanaelkane/vim-indent-guides'
     let g:indent_guides_enable_on_vim_startup = 1
     let g:indent_guides_guide_size = 1
     let g:indent_guides_start_level = 2
@@ -57,7 +54,7 @@ endif
 " ariline
 if index(g:bundle_group, 'airline') >= 0
     if has("gui_running")
-        Plugin 'bling/vim-airline'
+        Plug 'bling/vim-airline'
         "let g:airline_enable_branch     = 1
         let g:airline_enable_syntastic = 0
     endif
@@ -65,12 +62,12 @@ endif
 
 " programming
 if index(g:bundle_group, 'programming') >= 0
-    Plugin 'scrooloose/syntastic'
-    Plugin 'scrooloose/nerdcommenter'
-    Plugin 'a.vim'
+    Plug 'scrooloose/syntastic'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'vim-scripts/a.vim'
 
     " vim-header
-    Plugin 'fnstanc/vim-header'
+    Plug 'fnstanc/vim-header'
     let g:header_field_author = 'Lch'
     let g:header_field_author_email = 'fn.stanc@gmail.com'
     let g:header_field_filename_path = 0
@@ -79,14 +76,14 @@ if index(g:bundle_group, 'programming') >= 0
     let g:header_field_timestamp_format = '%Y/%m/%d %H:%M:%S'
 
     " pep8
-    Plugin 'vim-autopep8'
+    Plug 'tell-k/vim-autopep8'
     autocmd FileType python noremap <buffer> <F11> :call Autopep8()<CR>
 endif
 
 " snippets
 if index(g:bundle_group, 'snippets') >= 0
-    Plugin 'SirVer/ultisnips'
-    Plugin 'honza/vim-snippets'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
     let g:UltiSnipsExpandTrigger="<c-j>"
     let g:UltiSnipsJumpForwardTrigger="<c-l>"
     let g:UltiSnipsJumpBackwardTrigger="<c-h>"
@@ -94,7 +91,7 @@ endif
 
 " autocomplete
 if index(g:bundle_group, 'neocomplete') >= 0
-    Plugin 'Shougo/neocomplete.vim'
+    Plug 'Shougo/neocomplete.vim'
 
     "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
     " Disable AutoComplPop.
@@ -159,5 +156,5 @@ if index(g:bundle_group, 'neocomplete') >= 0
     let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 endif
 
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
