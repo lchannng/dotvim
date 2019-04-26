@@ -76,7 +76,7 @@ if index(g:bundle_group, 'programming') >= 0
     let g:header_field_timestamp_format = '%Y/%m/%d %H:%M:%S'
 
     " pep8
-    Plug 'tell-k/vim-autopep8'
+    Plug 'tell-k/vim-autopep8', { 'for' : 'python' }
     autocmd FileType python noremap <buffer> <F11> :call Autopep8()<CR>
 endif
 
@@ -157,4 +157,4 @@ if index(g:bundle_group, 'neocomplete') >= 0
 endif
 
 call plug#end()            " required
-filetype plugin indent on    " required
+" filetype plugin indent on    " required
