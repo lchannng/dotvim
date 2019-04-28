@@ -69,7 +69,7 @@ if index(g:bundle_group, 'programming') >= 0
     " vim-header
     Plug 'fnstanc/vim-header'
     let g:header_field_author = 'Lch'
-    let g:header_field_author_email = 'fn.stanc@gmail.com'
+    let g:header_field_author_email = 'l.channng@gmail.com'
     let g:header_field_filename_path = 0
     let g:header_field_modified_timestamp = 0
     let g:header_field_modified_by = 0
