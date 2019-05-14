@@ -32,7 +32,10 @@ call plug#begin(s:plugins_home)
 " 默认插件
 "----------------------------------------------------------------------
 Plug 'tomasr/molokai'
-Plug 'lilydjwg/fcitx.vim'
+
+if g:os == "Linux"
+    Plug 'lilydjwg/fcitx.vim'
+endif
 
 if index(g:bundle_group, 'basic') >= 0
     Plug 'scrooloose/nerdtree'
