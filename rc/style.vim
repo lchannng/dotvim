@@ -75,8 +75,7 @@ if has("gui_running")
             set guifont=Dejavu\ Sans\ Mono\ 11     " 字体 && 字号
         endif
 else
-        colorscheme molokai
-        " colorscheme desert
+        colorscheme desert
 endif
 
 "----------------------------------------------------------------------
