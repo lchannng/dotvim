@@ -110,6 +110,7 @@ augroup PythonTab
 	"au FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
 augroup END
 
+autocmd FileType go setlocal noexpandtab
 
 "----------------------------------------------------------------------
 " 允许 Vim 自带脚本根据文件类型自动设置缩进等
