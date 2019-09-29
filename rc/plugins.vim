@@ -70,7 +70,7 @@ if index(g:bundle_group, 'programming') >= 0
     Plug 'vim-scripts/a.vim'
 
     " vim-header
-    Plug 'fnstanc/vim-header'
+    Plug 'lchannng/vim-header'
     let g:header_field_author = 'Lch'
     let g:header_field_author_email = 'l.channng@gmail.com'
     let g:header_field_filename_path = 0
