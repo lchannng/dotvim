@@ -134,7 +134,7 @@ vnoremap <silent> gv :call VisualSelection('gv')<CR>
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 
 " Open Ag and put the cursor in the right position
-map <leader>g :Ag ""<left>
+nmap <leader>g :Ag ""<left>
 
 
 " Do :help cope if you are unsure what cope is. It's super useful!
@@ -252,6 +252,16 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+ 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Leaderf
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:Lf_ShortcutF = "<leader>ff"
+
+" Leaderf rg
+nmap <silent> <leader>fg :Leaderf rg<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other

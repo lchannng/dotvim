@@ -75,7 +75,10 @@ if has("gui_running")
             set guifont=Dejavu\ Sans\ Mono\ 11     " 字体 && 字号
         endif
 else
-        colorscheme desert
+        " colorscheme desert
+        colorscheme molokai
+        let g:molokai_original = 1
+        let g:rehash256 = 1
 endif
 
 "----------------------------------------------------------------------

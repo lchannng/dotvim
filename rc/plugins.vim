@@ -40,6 +40,7 @@ endif
 if index(g:bundle_group, 'basic') >= 0
     Plug 'scrooloose/nerdtree'
     Plug 'majutsushi/tagbar'
+    Plug 'Yggdroot/LeaderF'
 
     " ag
     Plug 'rking/ag.vim'
