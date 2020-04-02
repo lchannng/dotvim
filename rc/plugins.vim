@@ -31,7 +31,8 @@ call plug#begin(s:plugins_home)
 "----------------------------------------------------------------------
 " 默认插件
 "----------------------------------------------------------------------
-Plug 'tomasr/molokai'
+" Plug 'tomasr/molokai'
+Plug 'kaicataldo/material.vim'
 
 if g:os == "Linux"
     Plug 'lilydjwg/fcitx.vim'
@@ -57,11 +58,9 @@ endif
 
 " ariline
 if index(g:bundle_group, 'airline') >= 0
-    if has("gui_running")
-        Plug 'bling/vim-airline'
-        "let g:airline_enable_branch     = 1
-        let g:airline_enable_syntastic = 0
-    endif
+    Plug 'bling/vim-airline'
+    "let g:airline_enable_branch     = 1
+    let g:airline_enable_syntastic = 0
 endif
 
 " programming

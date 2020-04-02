@@ -62,23 +62,30 @@ set background=dark
 " 允许 256 色
 set t_Co=256
 
+if has("termguicolors")
+    " enable true color
+    set termguicolors
+endif
+
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'ocean'
+colorscheme material
+
 if has("gui_running")
-        colorscheme molokai
-        let g:rehash256 = 1
+        " colorscheme molokai
+        " let g:rehash256 = 1
+
         set guioptions-=T
         set guioptions+=e
         set guitablabel=%M\ %t
-        set lines=36 columns=88    " 设定窗口大小
+        set lines=36 columns=108    " 设定窗口大小
         if has("win32")
             set guifont=Dejavu_Sans_Mono:h10     " 字体 && 字号
         else
             set guifont=Dejavu\ Sans\ Mono\ 11     " 字体 && 字号
         endif
-else
+" else
         " colorscheme desert
-        colorscheme molokai
-        let g:molokai_original = 1
-        let g:rehash256 = 1
 endif
 
 "----------------------------------------------------------------------
@@ -114,3 +121,4 @@ augroup VimInitStyle
 	au!
 	au FileType qf setlocal nonumber
 augroup END
+
