@@ -41,7 +41,9 @@ endif
 if index(g:bundle_group, 'basic') >= 0
     Plug 'scrooloose/nerdtree'
     Plug 'majutsushi/tagbar'
+
     Plug 'Yggdroot/LeaderF'
+    let g:Lf_ShowDevIcons = 0
 
     " ag
     Plug 'rking/ag.vim'

@@ -72,20 +72,20 @@ let g:material_theme_style = 'ocean'
 colorscheme material
 
 if has("gui_running")
-        " colorscheme molokai
-        " let g:rehash256 = 1
+    " colorscheme molokai
+    " let g:rehash256 = 1
 
-        set guioptions-=T
-        set guioptions+=e
-        set guitablabel=%M\ %t
-        set lines=36 columns=108    " 设定窗口大小
-        if has("win32")
-            set guifont=Dejavu_Sans_Mono:h10     " 字体 && 字号
-        else
-            set guifont=Dejavu\ Sans\ Mono\ 11     " 字体 && 字号
-        endif
+    set guioptions-=T
+    set guioptions+=e
+    set guitablabel=%M\ %t
+    set lines=36 columns=108    " 设定窗口大小
+    if has("win32")
+        set guifont=Dejavu_Sans_Mono:h10     " 字体 && 字号
+    else
+        set guifont=Dejavu\ Sans\ Mono\ 11     " 字体 && 字号
+    endif
 " else
-        " colorscheme desert
+    " colorscheme desert
 endif
 
 "----------------------------------------------------------------------
