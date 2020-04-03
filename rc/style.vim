@@ -69,6 +69,7 @@ endif
 
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'ocean'
+let g:airline_theme='material'
 colorscheme material
 
 if has("gui_running")
