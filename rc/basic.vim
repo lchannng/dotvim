@@ -70,14 +70,14 @@ set incsearch
 " 编码设置
 "----------------------------------------------------------------------
 if has('multi_byte')
-	" 内部工作编码
-	set encoding=utf-8
+    " 内部工作编码
+    set encoding=utf-8
 
-	" 文件默认编码
-	set fileencoding=utf-8
+    " 文件默认编码
+    set fileencoding=utf-8
 
-	" 打开文件时自动尝试下面顺序的编码
-	set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
+    " 打开文件时自动尝试下面顺序的编码
+    set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
 endif
 
 
@@ -104,10 +104,10 @@ set expandtab
 set smarttab
 
 augroup PythonTab
-	au!
-	" 如果你需要 python 里用 tab，那么反注释下面这行字，否则vim会在打开py文件
-	" 时自动设置成空格缩进。
-	"au FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
+    au!
+    " 如果你需要 python 里用 tab，那么反注释下面这行字，否则vim会在打开py文件
+    " 时自动设置成空格缩进。
+    "au FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
 augroup END
 
 autocmd FileType go setlocal noexpandtab
@@ -116,7 +116,7 @@ autocmd FileType go setlocal noexpandtab
 " 允许 Vim 自带脚本根据文件类型自动设置缩进等
 "----------------------------------------------------------------------
 if has('autocmd')
-	filetype plugin indent on
+    filetype plugin indent on
 endif
 
 
@@ -124,8 +124,8 @@ endif
 " 语法高亮设置
 "----------------------------------------------------------------------
 if has('syntax')
-	syntax enable
-	syntax on
+    syntax enable
+    syntax on
 endif
 
 

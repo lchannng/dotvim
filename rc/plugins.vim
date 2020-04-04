@@ -6,8 +6,8 @@
 " 默认情况下的分组，可以再前面覆盖之
 "----------------------------------------------------------------------
 if !exists('g:bundle_group')
-	let g:bundle_group = ['basic', 'airline', 'programming', 'neocomplete']
-	let g:bundle_group += ['snippets']
+    let g:bundle_group = ['basic', 'airline', 'programming', 'neocomplete']
+    let g:bundle_group += ['snippets']
 endif
 
 "----------------------------------------------------------------------
@@ -16,8 +16,8 @@ endif
 let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
 
 function! s:path(path)
-	let path = expand(s:home . '/' . a:path )
-	return substitute(path, '\\', '/', 'g')
+    let path = expand(s:home . '/' . a:path )
+    return substitute(path, '\\', '/', 'g')
 endfunc
 
 let s:plugins_home = s:path("plugins")
@@ -68,7 +68,7 @@ if index(g:bundle_group, 'programming') >= 0
 
     " vim-header
     Plug 'lchannng/vim-header'
-    let g:header_field_author = 'Lch'
+    let g:header_field_author = 'lchannng'
     let g:header_field_author_email = 'l.channng@gmail.com'
     let g:header_field_filename_path = 0
     let g:header_field_modified_timestamp = 0
