@@ -67,7 +67,7 @@ if has("termguicolors")
     set termguicolors
 endif
 
-let g:material_terminal_italics = 1
+let g:material_terminal_italics = 0
 let g:material_theme_style = 'ocean'
 let g:airline_theme='material'
 colorscheme material
@@ -100,15 +100,15 @@ hi! clear SpellCap
 hi! clear SpellRare
 hi! clear SpellLocal
 if has('gui_running')
-	hi! SpellBad gui=undercurl guisp=red
-	hi! SpellCap gui=undercurl guisp=blue
-	hi! SpellRare gui=undercurl guisp=magenta
-	hi! SpellRare gui=undercurl guisp=cyan
+    hi! SpellBad gui=undercurl guisp=red
+    hi! SpellCap gui=undercurl guisp=blue
+    hi! SpellRare gui=undercurl guisp=magenta
+    hi! SpellRare gui=undercurl guisp=cyan
 else
-	hi! SpellBad term=standout ctermfg=1 term=underline cterm=underline
-	hi! SpellCap term=underline cterm=underline
-	hi! SpellRare term=underline cterm=underline
-	hi! SpellLocal term=underline cterm=underline
+    hi! SpellBad term=standout ctermfg=1 term=underline cterm=underline
+    hi! SpellCap term=underline cterm=underline
+    hi! SpellRare term=underline cterm=underline
+    hi! SpellLocal term=underline cterm=underline
 endif
 
 " 修正补全目录的色彩：默认太难看
@@ -119,7 +119,7 @@ endif
 " quickfix 设置，隐藏行号
 "----------------------------------------------------------------------
 augroup VimInitStyle
-	au!
-	au FileType qf setlocal nonumber
+    au!
+    au FileType qf setlocal nonumber
 augroup END
 
