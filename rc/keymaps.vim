@@ -133,10 +133,6 @@ vnoremap <silent> gv :call VisualSelection('gv')<CR>
 " When you press <leader>r you can search and replace the selected tmainmainmainext
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 
-" Open Ag and put the cursor in the right position
-nmap <leader>g :Ag ""<left>
-
-
 " Do :help cope if you are unsure what cope is. It's super useful!
 "
 " When you search with vimgrep, display your results in cope by doing:
@@ -203,8 +199,6 @@ function! VisualSelection(direction) range
 
     if a:direction == 'b'
         execute "normal ?" . l:pattern . "^M"
-    elseif a:direction == 'gv'
-        call CmdLine("Ag \"" . l:pattern . "\" " )
     elseif a:direction == 'replace'
         call CmdLine("%s" . '/'. l:pattern . '/')
     elseif a:direction == 'f'

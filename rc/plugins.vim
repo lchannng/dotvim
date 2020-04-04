@@ -45,11 +45,6 @@ if index(g:bundle_group, 'basic') >= 0
     Plug 'Yggdroot/LeaderF'
     let g:Lf_ShowDevIcons = 0
 
-    " ag
-    Plug 'rking/ag.vim'
-    let g:ag_prg = 'ag --nogroup --nocolor --column --smart-case --worker=4'
-    let g:ag_highlight = 1
-
     " vim-indent-guides
     Plug 'nathanaelkane/vim-indent-guides'
     let g:indent_guides_enable_on_vim_startup = 1
