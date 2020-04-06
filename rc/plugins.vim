@@ -55,14 +55,16 @@ endif
 
 " ariline
 if index(g:bundle_group, 'airline') >= 0
-    Plug 'bling/vim-airline'
-    "let g:airline_enable_branch     = 1
+    Plug 'vim-airline/vim-airline'
     let g:airline_enable_syntastic = 0
+    let g:airline#extensions#tabline#enabled = 1
 endif
 
 " programming
 if index(g:bundle_group, 'programming') >= 0
     Plug 'scrooloose/syntastic'
+    let g:syntastic_python_checkers = ['flake8']
+
     Plug 'scrooloose/nerdcommenter'
     Plug 'vim-scripts/a.vim'
 
