@@ -1,9 +1,9 @@
 
 " 防止重复加载
 if get(s:, 'loaded', 0) != 0
-	finish
+    finish
 else
-	let s:loaded = 1
+    let s:loaded = 1
 endif
 
 if !exists("g:os")
