@@ -31,8 +31,7 @@ call plug#begin(s:plugins_home)
 "----------------------------------------------------------------------
 " 默认插件
 "----------------------------------------------------------------------
-" Plug 'tomasr/molokai'
-Plug 'kaicataldo/material.vim'
+Plug 'tomasiser/vim-code-dark'
 
 if g:os == "Linux"
     Plug 'lilydjwg/fcitx.vim'

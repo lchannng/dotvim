@@ -67,15 +67,10 @@ if has("termguicolors")
     set termguicolors
 endif
 
-let g:material_terminal_italics = 0
-let g:material_theme_style = 'ocean'
-let g:airline_theme='material'
-colorscheme material
+let g:airline_theme = 'codedark'
+colorscheme codedark
 
 if has("gui_running")
-    " colorscheme molokai
-    " let g:rehash256 = 1
-
     set guioptions-=T
     set guioptions+=e
     set guitablabel=%M\ %t
@@ -85,8 +80,6 @@ if has("gui_running")
     else
         set guifont=Dejavu\ Sans\ Mono\ 11     " 字体 && 字号
     endif
-" else
-    " colorscheme desert
 endif
 
 "----------------------------------------------------------------------
