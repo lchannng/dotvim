@@ -7,9 +7,10 @@
 "----------------------------------------------------------------------
 if !exists('g:bundle_group')
     let g:bundle_group = ['basic', 'airline', 'programming']
-    let g:bundle_group += ['neocomplete']
     let g:bundle_group += ['tags']
     let g:bundle_group += ['snippets']
+    let g:bundle_group += ['neocomplete']
+    " let g:bundle_group += ['coc.nvim']
 endif
 
 "----------------------------------------------------------------------
@@ -61,6 +62,7 @@ if index(g:bundle_group, 'airline') >= 0
     Plug 'vim-airline/vim-airline'
     let g:airline_enable_syntastic = 0
     let g:airline#extensions#tabline#enabled = 1
+    set noshowmode
 endif
 
 " programming
@@ -188,6 +190,24 @@ if index(g:bundle_group, 'neocomplete') >= 0
     " For perlomni.vim setting.
     " https://github.com/c9s/perlomni.vim
     let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+endif
+
+if index(g:bundle_group, 'coc.nvim') >= 0
+    " Use release branch (Recommend)
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Use tab for trigger completion with characters ahead and navigate.
+    " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+    " other plugin before putting this into your config.
+    inoremap <silent><expr> <TAB>
+          \ pumvisible() ? "\<C-n>" :
+          \ <SID>check_back_space() ? "\<TAB>" :
+          \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
 endif
 
 call plug#end()            " required
