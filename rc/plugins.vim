@@ -6,7 +6,9 @@
 " 默认情况下的分组，可以再前面覆盖之
 "----------------------------------------------------------------------
 if !exists('g:bundle_group')
-    let g:bundle_group = ['basic', 'airline', 'programming', 'neocomplete']
+    let g:bundle_group = ['basic', 'airline', 'programming']
+    let g:bundle_group += ['neocomplete']
+    let g:bundle_group += ['tags']
     let g:bundle_group += ['snippets']
 endif
 
@@ -38,8 +40,10 @@ if g:os == "Linux"
 endif
 
 if index(g:bundle_group, 'basic') >= 0
-    Plug 'scrooloose/nerdtree'
-    Plug 'majutsushi/tagbar'
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'majutsushi/tagbar', { 'on':  'Tagbar' }
+
+    Plug 'mhinz/vim-signify'
 
     Plug 'Yggdroot/LeaderF'
     let g:Lf_ShowDevIcons = 0
@@ -82,7 +86,10 @@ if index(g:bundle_group, 'programming') >= 0
     " pep8
     Plug 'tell-k/vim-autopep8', { 'for' : 'python' }
     autocmd FileType python noremap <buffer> <F11> :call Autopep8()<CR>
+endif
 
+" tags
+if index(g:bundle_group, 'tags') >= 0
     " vim-gutentags
     Plug 'ludovicchabant/vim-gutentags'
 
@@ -105,7 +112,6 @@ if index(g:bundle_group, 'programming') >= 0
     if !isdirectory(s:vim_tags)
        silent! call mkdir(s:vim_tags, 'p')
     endif
-
 endif
 
 " snippets
