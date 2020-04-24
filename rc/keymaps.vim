@@ -256,6 +256,9 @@ let g:Lf_ShortcutF = "<leader>ff"
 " Leaderf rg
 nmap <silent> <leader>fg :Leaderf rg<CR>
 
+" Leaderf rg
+nmap <silent> <leader>fd :LeaderfFunction<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other

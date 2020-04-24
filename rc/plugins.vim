@@ -65,6 +65,10 @@ if index(g:bundle_group, 'programming') >= 0
     let g:syntastic_python_checkers = ['flake8']
     let g:syntastic_python_flake8_post_args='--ignore=E501'
 
+    " Plug 'dense-analysis/ale'
+    " let b:ale_linters = ['flake8']
+    " let b:ale_fixers = ['autopep8']
+
     Plug 'scrooloose/nerdcommenter'
     Plug 'vim-scripts/a.vim'
 
