@@ -61,13 +61,11 @@ endif
 
 " programming
 if index(g:bundle_group, 'programming') >= 0
-    Plug 'scrooloose/syntastic'
-    let g:syntastic_python_checkers = ['flake8']
-    let g:syntastic_python_flake8_post_args='--ignore=E501'
-
-    " Plug 'dense-analysis/ale'
-    " let b:ale_linters = ['flake8']
-    " let b:ale_fixers = ['autopep8']
+    Plug 'dense-analysis/ale'
+    let g:ale_linters = {'python': ['flake8']}
+    let g:ale_python_flake8_options = '--ignore=E501'
+    let g:ale_fixers = {'python': ['autopep8']}
+    let g:ale_echo_msg_format = '%s [%code%]'
 
     Plug 'scrooloose/nerdcommenter'
     Plug 'vim-scripts/a.vim'
