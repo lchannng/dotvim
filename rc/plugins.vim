@@ -8,9 +8,8 @@
 if !exists('g:bundle_group')
     let g:bundle_group = ['basic', 'airline', 'programming']
     let g:bundle_group += ['tags']
-    let g:bundle_group += ['snippets']
-    let g:bundle_group += ['neocomplete']
-    " let g:bundle_group += ['coc.nvim']
+    " let g:bundle_group += ['neocomplete']
+    let g:bundle_group += ['coc.nvim']
 endif
 
 "----------------------------------------------------------------------
@@ -115,17 +114,15 @@ if index(g:bundle_group, 'tags') >= 0
     endif
 endif
 
-" snippets
-if index(g:bundle_group, 'snippets') >= 0
+" autocomplete
+if index(g:bundle_group, 'neocomplete') >= 0
+    " snippets
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     let g:UltiSnipsExpandTrigger="<c-j>"
     let g:UltiSnipsJumpForwardTrigger="<c-l>"
     let g:UltiSnipsJumpBackwardTrigger="<c-h>"
-endif
 
-" autocomplete
-if index(g:bundle_group, 'neocomplete') >= 0
     Plug 'Shougo/neocomplete.vim'
 
     "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -194,6 +191,7 @@ endif
 if index(g:bundle_group, 'coc.nvim') >= 0
     " Use release branch (Recommend)
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
     " Use tab for trigger completion with characters ahead and navigate.
     " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
     " other plugin before putting this into your config.
@@ -207,6 +205,10 @@ if index(g:bundle_group, 'coc.nvim') >= 0
       let col = col('.') - 1
       return !col || getline('.')[col - 1]  =~# '\s'
     endfunction
+
+    " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+    " delays and poor user experience.
+    set updatetime=300
 endif
 
 call plug#end()            " required
