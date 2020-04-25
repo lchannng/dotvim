@@ -42,7 +42,6 @@ endif
 
 if index(g:bundle_group, 'basic') >= 0
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'majutsushi/tagbar', { 'on':  'Tagbar' }
 
     Plug 'mhinz/vim-signify'
 
