@@ -281,15 +281,6 @@ nnoremap <silent> <F6> :A<CR>
 " 仅显示当前文件的tags
 let Tlist_Show_One_File=1
 
-" 建立tags
-" map <F2> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
-" Tagbar
-map <F3> :Tagbar <CR>
-
-" NERDTree
-map <F4> :NERDTreeToggle<CR>
-
 " 自动补全
 set completeopt=longest,menu
 

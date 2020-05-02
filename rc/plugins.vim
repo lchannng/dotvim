@@ -40,8 +40,6 @@ if g:os == "Linux"
 endif
 
 if index(g:bundle_group, 'basic') >= 0
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
     Plug 'mhinz/vim-signify'
 
     Plug 'Yggdroot/LeaderF'
@@ -209,6 +207,9 @@ if index(g:bundle_group, 'coc.nvim') >= 0
     " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
     " delays and poor user experience.
     set updatetime=300
+
+    " coc explorer
+    nmap <F4> :CocCommand explorer<CR>
 endif
 
 call plug#end()            " required
