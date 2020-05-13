@@ -210,6 +210,12 @@ if index(g:bundle_group, 'coc.nvim') >= 0
 
     " coc explorer
     nmap <F4> :CocCommand explorer<CR>
+
+    " GoTo code navigation.
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
 endif
 
 call plug#end()            " required
