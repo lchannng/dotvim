@@ -27,3 +27,5 @@ fi
 npm install coc-json --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 npm install coc-python --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 npm install coc-explorer --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+
+mkdir -p ~/.vim && cp -v coc_settings.json ~/.vim/coc-settings.json
