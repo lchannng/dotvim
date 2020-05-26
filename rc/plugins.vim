@@ -42,8 +42,21 @@ endif
 if index(g:bundle_group, 'basic') >= 0
     Plug 'mhinz/vim-signify'
 
-    Plug 'Yggdroot/LeaderF'
+    if has("win32")
+        Plug 'Yggdroot/LeaderF', { 'do': './install.bat' }
+    else
+        Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+    endif
+
     let g:Lf_ShowDevIcons = 0
+    let g:Lf_WildIgnore = {
+            \ 'dir': ['.svn','.git','.hg'],
+            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+            \}
+    let g:Lf_RgConfig = [
+        \ "--max-columns=150",
+        \ "--glob=!git/*",
+    \ ]
 
     " vim-indent-guides
     Plug 'nathanaelkane/vim-indent-guides'
