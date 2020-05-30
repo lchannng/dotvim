@@ -48,6 +48,7 @@ if index(g:bundle_group, 'basic') >= 0
         Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
     endif
 
+    let g:Lf_UseCache = 0
     let g:Lf_ShowDevIcons = 0
     let g:Lf_WildIgnore = {
             \ 'dir': ['.svn','.git','.hg'],
