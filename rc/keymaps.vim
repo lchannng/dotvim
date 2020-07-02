@@ -259,6 +259,11 @@ nmap <silent> <leader>fg :Leaderf rg<CR>
 " Leaderf rg
 nmap <silent> <leader>fd :LeaderfFunction<CR>
 
+" Leaderf bufTag
+noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+
+" Leaderf line
+noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other
