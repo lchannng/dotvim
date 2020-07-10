@@ -67,8 +67,11 @@ if has("termguicolors")
     set termguicolors
 endif
 
-let g:airline_theme = 'codedark'
-colorscheme codedark
+" let g:airline_theme = 'codedark'
+" colorscheme codedark
+
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 
 if has("gui_running")
     set guioptions-=T
