@@ -70,6 +70,7 @@ endif
 " let g:airline_theme = 'codedark'
 " colorscheme codedark
 
+set t_ut=
 let g:one_allow_italics = 1
 colorscheme one
 
