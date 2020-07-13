@@ -70,8 +70,8 @@ endif
 " let g:airline_theme = 'codedark'
 " colorscheme codedark
 
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+let g:one_allow_italics = 1
+colorscheme one
 
 if has("gui_running")
     set guioptions-=T

@@ -34,7 +34,7 @@ call plug#begin(s:plugins_home)
 " 默认插件
 "----------------------------------------------------------------------
 Plug 'tomasiser/vim-code-dark'
-Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
 
 if g:os == "Linux"
     Plug 'lilydjwg/fcitx.vim'
