@@ -35,6 +35,7 @@ call plug#begin(s:plugins_home)
 "----------------------------------------------------------------------
 Plug 'tomasiser/vim-code-dark'
 Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
 
 if g:os == "Linux"
     Plug 'lilydjwg/fcitx.vim'
