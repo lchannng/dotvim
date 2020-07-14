@@ -71,8 +71,8 @@ endif
 " colorscheme codedark
 
 set t_ut=
-let g:one_allow_italics = 1
-colorscheme one
+let g:airline_theme='onedark'
+colorscheme onedark
 
 if has("gui_running")
     set guioptions-=T
