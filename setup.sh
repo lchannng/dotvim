@@ -3,6 +3,8 @@
 # Author: lchannng <l.channng@gmail.com>
 # Date  : 2020/05/02 19:13:02
 
+cwd=`pwd`
+
 set -o nounset    # error when referencing undefined variable
 set -o errexit    # exit when command fails
 
@@ -28,4 +30,4 @@ npm install coc-json --global-style --ignore-scripts --no-bin-links --no-package
 npm install coc-python --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 npm install coc-explorer --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 
-mkdir -p ~/.vim && cp -v coc-settings.json ~/.vim/coc-settings.json
+mkdir -p ~/.vim && cp -v ${cwd}/coc-settings.json ~/.vim/coc-settings.json
