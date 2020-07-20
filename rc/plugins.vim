@@ -232,6 +232,13 @@ if index(g:bundle_group, 'coc.nvim') >= 0
     nmap <silent> gy <Plug>(coc-type-definition)
     nmap <silent> gi <Plug>(coc-implementation)
     nmap <silent> gr <Plug>(coc-references)
+
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    " Use <C-l> for trigger snippet expand.
+    " imap <C-l> <Plug>(coc-snippets-expand)
+    " Use <C-j> for both expand and jump (make expand higher priority.)
+    imap <C-j> <Plug>(coc-snippets-expand-jump)
 endif
 
 call plug#end()            " required
