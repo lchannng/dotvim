@@ -1,5 +1,4 @@
 {
-    "python.jediEnabled": false,
     "python.linting.enabled":false,
-    "python.analysis.diagnosticEnabled": false
+    "diagnostic.enable": false
 }
