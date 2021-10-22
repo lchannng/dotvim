@@ -92,6 +92,7 @@ if index(g:bundle_group, 'programming') >= 0
 
     " vim-header
     Plug 'lchannng/vim-header'
+    let g:header_auto_add_header = 1
     let g:header_field_author = 'lchannng'
     let g:header_field_author_email = 'l.channng@gmail.com'
     let g:header_field_filename_path = 0
