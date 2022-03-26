@@ -2,11 +2,6 @@
 " Author: Lch <fn.stanc@gmail.com>
 " Date  : 2018/12/01 15:15:27
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-" let mapleader = ","
-" let g:mapleader = ","
-
 " Fast saving
 nmap <leader>w :w<cr>
 
@@ -24,26 +19,6 @@ nmap <silent> <leader>h :nohlsearch<CR>
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs, windows and buffers
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Treat long lines as break lines (useful when moving around in them)
-" map j gj
-" map k gk
-
-" Map <Space> to / (search)
-map <space> /
-
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
-
-" Smart way to move between windows
-" map <C-j> <C-W>j
-" map <C-k> <C-W>k
-" map <C-h> <C-W>h
-" map <C-l> <C-W>l
 
 
 " buffers
@@ -68,7 +43,6 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 " 关闭标签页
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
 
 " 切换标签页
 map <F7> :tabprev<CR>
@@ -77,9 +51,6 @@ map <F8> :tabnext<CR>
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
-" Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers
 try
@@ -100,20 +71,6 @@ set viminfo^=%
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Delete trailing white space by pressing <F12>
-nmap <F12> :call DeleteTrailingWS()<CR>
-
-" Remap VIM 0 to first non-blank character
-map 0 ^
-
-" 移动当前行/块
-" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
   exe "normal mz"
@@ -123,6 +80,36 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
+"Delete trailing white space by pressing <F12>
+nmap <F12> :call DeleteTrailingWS()<CR>
+
+" Remove the Windows ^M - when the encodings gets messed up
+noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+" Remove "\t"
+noremap <Leader>t :%s/\t/    /ge
+
+" Remap VIM 0 to first non-blank character
+map 0 ^
+
+" 插入匹配括号
+:inoremap ( ()<ESC>i
+:inoremap ) <c-r>=ClosePair(')')<CR>
+:inoremap { {}<ESC>i
+:inoremap } <c-r>=ClosePair('}')<CR>
+:inoremap [ []<ESC>i
+:inoremap ] <c-r>=ClosePair(']')<CR>
+
+function ClosePair(char)
+    if getline('.')[col('.') - 1] == a:char
+        return "\<Right>"
+    else
+        return a:char
+    endif
+endf
+
+"新建文件后，自动定位到文件末尾
+autocmd BufNewFile * normal G
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying
@@ -132,55 +119,6 @@ vnoremap <silent> gv :call VisualSelection('gv')<CR>
 
 " When you press <leader>r you can search and replace the selected tmainmainmainext
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
-
-" Do :help cope if you are unsure what cope is. It's super useful!
-"
-" When you search with vimgrep, display your results in cope by doing:
-"   <leader>cc
-"
-" 下一个查找结果
-" To go to the next search result do:
-"   <leader>n
-"
-" 上一个查找结果
-" To go to the previous search results do:
-"   <leader>p
-"
-map <F9> :copen<cr>
-map <leader>cc :botright cope<cr>
-map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Spell checking
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
-
-" Shortcuts using <leader>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Misc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
-" Remove "\t"
-noremap <Leader>t :%s/\t/    /ge
-
-" Quickly open a buffer for scripbble
-map <leader>buf :e ~/buffer<cr>
-
-" Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -209,23 +147,6 @@ function! VisualSelection(direction) range
     let @" = l:saved_reg
 endfunction
 
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return '[PASTE MODE]'
-    en
-    return ''
-endfunction
-
-function! GetFileType()
-    if &filetype == ''
-        return 'Undefined'
-    else
-        return &filetype
-    fi
-endfunction
-
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
@@ -247,63 +168,3 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Leaderf
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:Lf_ShortcutF = "<leader>ff"
-
-" Leaderf rg
-nmap <silent> <leader>fg :Leaderf rg<CR>
-
-" Leaderf rg
-nmap <silent> <leader>fd :LeaderfFunction<CR>
-
-" Leaderf bufTag
-noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
-
-" Leaderf line
-noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Other
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" highlight one column
-map ,ch :call SetColorColumn()<CR>
-function! SetColorColumn()
-    let col_num = virtcol(".")
-    let cc_list = split(&cc, ',')
-    if count(cc_list, string(col_num)) <= 0
-        execute "set cc+=".col_num
-    else
-        execute "set cc-=".col_num
-    endif
-endfunction
-
-" 在新Buffer中打开c/h文件，需要a.vim
-nnoremap <silent> <F6> :A<CR>
-
-" 仅显示当前文件的tags
-let Tlist_Show_One_File=1
-
-" 自动补全
-set completeopt=longest,menu
-
-" 插入匹配括号
-:inoremap ( ()<ESC>i
-:inoremap ) <c-r>=ClosePair(')')<CR>
-:inoremap { {}<ESC>i
-:inoremap } <c-r>=ClosePair('}')<CR>
-:inoremap [ []<ESC>i
-:inoremap ] <c-r>=ClosePair(']')<CR>
-
-function ClosePair(char)
-    if getline('.')[col('.') - 1] == a:char
-        return "\<Right>"
-    else
-        return a:char
-    endif
-endf
-
-"新建文件后，自动定位到文件末尾
-autocmd BufNewFile * normal G

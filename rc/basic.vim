@@ -37,11 +37,6 @@ set ruler
 " 在处理未保存或只读文件的时候，弹出确认
 set confirm
 
-" 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
-" set mouse=a
-" set selection=exclusive
-" set selectmode=mouse,key
-
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
@@ -154,7 +149,6 @@ set noundofile
 " 创建目录，并且忽略可能出现的警告
 silent! call mkdir(expand('~/.vim/tmp'), "p", 0755)
 
-
 "----------------------------------------------------------------------
 " 其他设置
 "----------------------------------------------------------------------
@@ -193,22 +187,6 @@ set formatoptions+=B
 
 " 文件换行符，默认使用 unix 换行符
 set ffs=unix,dos,mac
-
-
-"----------------------------------------------------------------------
-" 设置代码折叠
-"----------------------------------------------------------------------
-if has('folding')
-    " 允许代码折叠
-    " set foldenable
-
-    " 代码折叠默认使用缩进
-    " set fdm=indent
-
-    " 默认打开所有缩进
-    " set foldlevel=99
-endif
-
 
 "----------------------------------------------------------------------
 " 文件搜索和补全时忽略下面扩展名

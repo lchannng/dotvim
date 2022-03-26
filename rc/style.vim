@@ -67,11 +67,8 @@ if has("termguicolors")
     set termguicolors
 endif
 
-" let g:airline_theme = 'codedark'
-" colorscheme codedark
 
 set t_ut=
-let g:airline_theme='onedark'
 colorscheme onedark
 
 if has("gui_running")
